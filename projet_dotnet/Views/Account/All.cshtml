@@ -1,0 +1,36 @@
+﻿@model User
+@{
+    ViewBag.Title = "Register";
+}
+
+@{
+    List<User> l = (List<User>)ViewData["usersList"];
+}
+
+@if (@l == null || @l.Count == 0)
+{
+    <div class="alert alert-info" role="alert" style="margin: 20px">
+        <h1>No userss found!</h1>
+    </div>
+}
+ else 
+ { 
+
+    <div style="margin: 20px .">
+     
+        <div class="row">
+            @foreach (User @s in @l)
+            {
+              <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"> @s.FirstName ) @s.LastName ) @s.Niveau ) @s.Filiere </h5>
+      </div>
+
+             </div>
+
+            }
+        </div>
+    </div>
+
+   }
+ 

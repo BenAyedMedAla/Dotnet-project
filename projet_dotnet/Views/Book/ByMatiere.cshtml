@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "ByMatiere";
+}
+
+@{
+    string matiere = (string)ViewData["matiere"];
+    List<Book> l = (List<Book>)ViewData["booksList"];
+}
+@if (@l == null || @l.Count == 0)
+{
+    <div class="alert alert-info" role="alert" style="margin: 20px">
+        <h1>no books sorry @matiere !</h1>
+        <a href="/book" class="btn btn-primary btn-lg"> back </a>
+    </div>
+}
+else
+{
+    <h1>books @matiere </h1> 
+    <ol class="list-group list-group-numbered">
+        <h1>books1 </h1>
+        @foreach (Book @b in @l)
+        {
+            <li class="list-group-item">@b.book_title @b.matiere</li>
+        }
+    </ol>
+    <a href="/book" class="btn btn-primary btn-lg"> back </a>
+    
+}

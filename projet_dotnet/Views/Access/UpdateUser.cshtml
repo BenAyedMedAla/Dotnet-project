@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Edit Profile";
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="col-md-12 alert alert-danger">
+        <span><b>Sorry!</b> - @TempData["Error"] </span>
+    </div>
+}
+
+else {
+    User u = (User)ViewData["currentUser"];
+
+
+
+    <div class="card text-center">
+
+
+        <div>
+            @using (Html.BeginForm("UpdateUser", "Access", FormMethod.Post))
+            {
+                
+                <table class="table table-borderless">
+                    
+                <tr>
+                        <td>Name </td>
+                             <td>@Html.TextBox("Name")</td>
+                    <tr>
+                        <td>Email </td>
+                            <td>@Html.TextBox("Email")</td>
+                    <tr>
+                        <td>Password </td>
+                        <td>@Html.TextBox("Password")</td>d>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save changes" class="btn btn-outline-secondary" /></td>
+                    </tr>
+                </table>
+              }
+        </div>
+    </div>
+  }
+

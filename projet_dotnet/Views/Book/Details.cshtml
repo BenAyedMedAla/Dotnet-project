@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+
+@{
+    
+    Book b = (Book)ViewData["book"];
+}
+
+@if (@b == null)
+{
+    <div class="alert alert-info" role="alert" style="margin: 20px">
+        <h1>there are no books with this id !</h1>
+        <h5>Try another one.</h5>
+    </div>
+}
+else
+{
+    <div style="margin: 20px">
+        <h1>book </h1>
+        <div class="row">
+            
+            
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"> @b.book_id) @b.book_title  </h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>matiere</b> @b.matiere</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>author</b> @b.author</h6>
+                        
+
+                    </div>
+
+                        <a href="/book/index" class="btn btn-primary btn-lg">view all;</a>
+                </div>
+
+           
+
+        </div>
+    </div>
+}

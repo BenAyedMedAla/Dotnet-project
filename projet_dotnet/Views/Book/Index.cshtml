@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "All books";
+}
+
+@{
+    List<Book> l = (List<Book>)ViewData["booksList"];
+}
+
+
+
+    <form asp-controller="Book" asp-action="ByMatiere" method="get">
+        <div class="form-group">
+            <label for="course">search By Matiere </label>
+            <input type="text" class="form-control" width="200" name= "matiere" id="matiere">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+
+
+
+
+@if (@l==null )
+{
+    <div class="alert alert-info" role="alert" style="margin: 20px">
+        <h1>No books found!</h1>
+    </div>
+}
+else{
+    <a href="/book/create" class="btn btn-primary btn-lg"> create new book</a>
+
+<div style="margin: 20px">
+    <div class="row">
+   @foreach (Book @s in @l){
+       <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/assets/img/bg-masthead.jpg" alt="Card image cap">
+             <div class="card-body">
+                 
+                <h5 class="card-title"> @s.book_id) @s.book_title @s.matiere</h5>
+
+                        <a href="/book/details?id=@s.book_id" class="btn btn-primary"> open</a>
+                        <a href="@Url.Action("AddBookToUser", "Book", new { bookId = s.book_id, userId = 1 })">Add Book to User</a>
+
+                 
+                  <a asp-action="Delete" asp-route-id="@s.book_id" class="btn btn-danger">Delete</a>
+            </div>
+
+        </div>
+
+   }
+   </div>
+</div>
+}
