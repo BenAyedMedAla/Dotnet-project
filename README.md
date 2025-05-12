@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 The main branch contains all the latest updates 
 
 
@@ -20,3 +21,7 @@ This is the update interface :
 This is where you find all users with their personal data :
 ![users](https://user-images.githubusercontent.com/94303698/212529820-c39c3bd8-4ea1-4774-b0b4-d0bab4b600f3.png)
 
+=======
+# Dotnet-project
+Système de gestion de bibliothèque INSAT
+>>>>>>> 2643703eaab4d4781fd30105c9fa0b9acb9a7868
